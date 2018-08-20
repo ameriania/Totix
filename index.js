@@ -11,13 +11,14 @@ import "./styles.css";
 // import animate  from './animate'
 // import Event from './eventTarget'
 // import lazycount from "./lazycount";
-
+import SelfString from "./string";
 // touch();
 // curry();
 // senior();
 // animate()
 // Event()
 // lazycount();
+SelfString();
 
 // var vconsole = new VConsole();
 // xss();
