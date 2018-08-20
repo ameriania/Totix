@@ -32,4 +32,5 @@ export default function () {
     var sum = curry2(add);
 
     console.log(sum(2, 2)(2));
+
 }
