@@ -1,15 +1,19 @@
 {
-    "name": "Totix",
-    "version": "1.0.0",
-    "description": "",
-    "keywords": [],
-    "main": "index.js",
-    "dependencies": {},
-    "devDependencies": {},
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test --env=jsdom",
-        "eject": "react-scripts eject"
-    }
+  "name": "totix",
+  "version": "1.0.0",
+  "description": "实用函数库",
+  "keywords": [],
+  "main": "index.js",
+  "dependencies": {
+    "react": "latest",
+    "react-dom": "latest",
+    "react-scripts": "1.1.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
 }
