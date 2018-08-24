@@ -22,7 +22,7 @@ import lazy from "./lazy";
 // lazycount();
 // SelfString();
 // shuffle();
-// lazy();
+lazy();
 
 // var vconsole = new VConsole();
 // xss();
