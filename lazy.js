@@ -75,12 +75,26 @@ export default function() {
   }
 
   const nums = lazy()
-    .range(0, 100)
-    .map(n => n * 10)
-    .filter(n => n % 3 === 0)
-    .take(2);
+    .range(0, 10)
+    .map(n => n * 10);
+  // .filter(n => n % 3 === 0)
+  // .take(2);
 
   for (let n of nums) {
     console.log("num:\t", n, "\n");
   }
+
+  /**
+   * 编写函数 getNumberStr(1,false,'2','b',3,4,'a')=>'1,2,3'
+   */
+  function getNumberStr(...args) {
+    let arr = [];
+    for (const item of args) {
+      if (Number(item) <= 3 && Number(item) > 0) {
+        arr.push(String(item));
+      }
+    }
+    console.log(arr.join(","));
+  }
+  getNumberStr(1, false, "2", "b", 3, 4, "a");
 }
