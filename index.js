@@ -12,7 +12,8 @@ import "./styles.css";
 // import Event from './eventTarget'
 // import lazycount from "./lazycount";
 // import SelfString from "./string";
-import shuffle from "./shuffle";
+// import shuffle from "./shuffle";
+import lazy from "./lazy";
 // touch();
 // curry();
 // senior();
@@ -20,7 +21,8 @@ import shuffle from "./shuffle";
 // Event()
 // lazycount();
 // SelfString();
-shuffle();
+// shuffle();
+// lazy();
 
 // var vconsole = new VConsole();
 // xss();
