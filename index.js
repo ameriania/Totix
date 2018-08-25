@@ -13,7 +13,7 @@ import "./styles.css";
 // import lazycount from "./lazycount";
 // import SelfString from "./string";
 // import shuffle from "./shuffle";
-import lazy from "./lazy";
+// import lazy from "./lazy";
 // touch();
 // curry();
 // senior();
@@ -22,7 +22,7 @@ import lazy from "./lazy";
 // lazycount();
 // SelfString();
 // shuffle();
-lazy();
+// lazy();
 
 // var vconsole = new VConsole();
 // xss();
@@ -31,43 +31,36 @@ class App extends React.Component {
     super(props);
 
     this.wrap = React.createRef();
+
+    this.state = {
+      clientX: "",
+      clientY: "",
+      showMenu: false
+    };
   }
 
-  componentDidMount() {
-    this.wrap.current.addEventListener(
-      "touchmove",
+  componentDidMount() {}
+
+  showMenu() {
+    document.addEventListener(
+      "contextmenu",
       evt => {
-        // evt.preventDefault();
-        evt.stopPropagation();
+        let clientX = evt.clientX;
+        let clientY = evt.clientY;
+        this.setState({
+          clientX: clientX + "px",
+          clientY: clientY + "px",
+          showMenu: true
+        });
       },
-      {
-        passive: false
-      }
+      false
     );
-
-    var start = null;
-    var element = this.wrap.current;
-    element.style.position = "absolute";
-
-    function step(timestamp) {
-      if (!start) start = timestamp;
-      var progress = timestamp - start;
-      element.style.left = Math.min(progress / 10, 200) + "px";
-      if (progress < 2000) {
-        window.requestAnimationFrame(step);
-      }
-    }
-
-    // window.requestAnimationFrame(step);
   }
+
   render() {
     return (
       <div className="App" onTouchStart={evt => this.touchStart(evt)}>
-        <div
-          className="inside"
-          ref={this.wrap}
-          id="SomeElementYouWantToAnimate"
-        >
+        <div className="inside" id="SomeElementYouWantToAnimate">
           <h1>test</h1>
           <h1>test</h1>
           <h1>test</h1>
@@ -98,6 +91,20 @@ class App extends React.Component {
           <h1>Hello CodeSandbox</h1>
           <h1>Hello CodeSandbox</h1>
           <h1>Hello toti</h1>
+        </div>
+        <div
+          ref={this.wrap}
+          style={
+            this.state.showMenu
+              ? {
+                  display: "block",
+                  position: "absolute",
+                  top: this.state.clientX
+                }
+              : { display: "none" }
+          }
+        >
+          ()
         </div>
       </div>
     );
