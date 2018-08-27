@@ -55,4 +55,9 @@ export default function() {
 
   let money = toMoney("42342342342");
   console.log(money);
+
+  /** 增加去除字符串前后空格 */
+  function trim(str) {
+    return str.trim();
+  }
 }
