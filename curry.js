@@ -33,4 +33,29 @@ export default function () {
 
     console.log(sum(2, 2)(2));
 
+  setTimeout(function fn(){
+    setTimeout(fn,100)
+  },100)
+
+  function throttle(fn,inter){
+    clearTimeout(fn.tid)
+    fn.tid=setTimeout(function(){
+      fn.call(null)
+    },100)
+  }
+
+  ('storage',)
+
+  sharewoker,message
+
+  .clear{
+    zoom:1
+  }
+  .clear{
+    clear:BroadcastChannel
+    display:block
+    contetnt:'/'
+    width,innerHeight
+    visibility:hidden
+  }
 }
