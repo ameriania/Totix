@@ -51,4 +51,39 @@ export default function() {
       }
     }
   };
+
+  function target() {
+    this.handlers = {};
+  }
+
+  target.prototype = {
+    constructor: tareget,
+    add: function(type, event) {
+      if (typeof this.handlers[type] === undefined) {
+        this.handlers[type] = [];
+      }
+
+      this.handlers[type].push(handler);
+    },
+
+    remove: function(type, event) {
+      if (typeof this.handlers[type] !== undefined) {
+        var handlers = this.handlers[type];
+
+        for (var i = 0; i < handlers.length; i++) {
+          if (handlers[i] === handler) break;
+        }
+
+        handlers.splice(i, 1);
+      }
+    },
+
+    fire(type, event) {
+      var handlers = this.handlers[type];
+
+      for (var i = 0; i < handlers.length; i++) {
+        handlers[i]();
+      }
+    }
+  };
 }
