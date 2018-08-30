@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./styles.css";
 
 /** 触摸事件 */
+import varEvent from "./var";
 // import touch from "./touch";
 /** 函数 curry 化 */
 // import curry from "./curry";
@@ -23,6 +24,7 @@ import "./styles.css";
 // SelfString();
 // shuffle();
 // lazy();
+varEvent();
 
 // var vconsole = new VConsole();
 // xss();
@@ -61,8 +63,8 @@ class App extends React.Component {
     return (
       <div className="App" onTouchStart={evt => this.touchStart(evt)}>
         <div className="inside" id="SomeElementYouWantToAnimate">
-          <h1>test</h1>
-          <h1>test</h1>
+          <h1 className=".demo">test</h1>
+          <h1 className=".demo">test</h1>
           <h1>test</h1>
           <h1>test</h1>
           <h1>test</h1>
