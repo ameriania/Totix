@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./styles.css";
+import "./styles.less";
+import { TwoSideLeft } from "./flow";
 
 /** 触摸事件 */
-import varEvent from "./var";
+// import varEvent from "./var";
 // import touch from "./touch";
 /** 函数 curry 化 */
 // import curry from "./curry";
@@ -24,7 +25,7 @@ import varEvent from "./var";
 // SelfString();
 // shuffle();
 // lazy();
-varEvent();
+// varEvent();
 
 // var vconsole = new VConsole();
 // xss();
@@ -66,33 +67,7 @@ class App extends React.Component {
           <h1 className=".demo">test</h1>
           <h1 className=".demo">test</h1>
           <h1>test</h1>
-          <h1>test</h1>
-          <h1>test</h1>
-          <h1>test</h1>
-          <h1>Hello toti</h1>
-          <h1>Hello toti</h1>
-          <h1>Hello toti</h1>
-          <h1>Hello toti</h1>
-          <h1>Hello toti</h1>
-          <h1>Hello toti</h1>
-          <h1>Hello toti</h1>
-          <h1>Hello toti</h1>
-          <h1>Hello CodeSandtoti</h1>
-          <h1>Hello CodeSandbox</h1>
-          <h1>Hello CodeSandbox</h1>
-          <h1>Hello CodeSandbox</h1>
-          <h1>Hello CodeSandbox</h1>
-          <h1>Hello CodeSandbox</h1>
-          <h1>Hello CodeSandbox</h1>
-          <h1>Hello CodeSandbox</h1>
-          <h1>Hello CodeSandbox</h1>
-          <h1>Hello CodeSandbox</h1>
-          <h1>Hello CodeSandbox</h1>
-          <h1>Hello CodeSandbox</h1>
-          <h1>Hello CodeSandbox</h1>
-          <h1>Hello CodeSandbox</h1>
-          <h1>Hello CodeSandbox</h1>
-          <h1>Hello toti</h1>
+          <TwoSideLeft />
         </div>
         <div
           ref={this.wrap}

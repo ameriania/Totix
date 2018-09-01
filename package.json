@@ -5,6 +5,7 @@
   "keywords": [],
   "main": "index.js",
   "dependencies": {
+    "less": "3.8.1",
     "react": "latest",
     "react-dom": "latest",
     "react-scripts": "1.1.4"
