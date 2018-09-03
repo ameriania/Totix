@@ -37,12 +37,25 @@ export default function() {
     setTimeout(fn, 100);
   }, 100);
 
-  function throttle(fn, inter) {
+  /** 防抖函数 */
+  function debounce(fn, inter) {
     clearTimeout(fn.tid);
     fn.tid = setTimeout(function() {
       fn.call(null);
     }, 100);
   }
+
+  /** 节流函数 */
+  let throttle = (fn, delay) => {
+    let startT = 0;
+    return function(...args) {
+      let curT = new Date();
+      if (curT - startT >= delay) {
+        fn.apply(this, args);
+        startT = curT;
+      }
+    };
+  };
 
   var a = document.querySelectorAll(".demo");
 
