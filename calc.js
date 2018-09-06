@@ -20,5 +20,7 @@ export default function(){
 
     /** 吐出 left right top bottom 四个方向的字符串 */
     return [x, y].join(' ')
+
+    /** 通过类的方式输出,其实是合理的方式 */
   }
 }
