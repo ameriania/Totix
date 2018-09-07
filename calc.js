@@ -24,3 +24,9 @@ export default function(){
     /** 通过类的方式输出,其实是合理的方式 */
   }
 }
+
+/** 网格视图的计算 */
+export function(){
+  var colCount = Math.floor(((containerWidth - scrollBarWidth - extraPadding) / cardWidth) - 0.5);
+  var rowCount = Math.floor(containerHeight / cardHeight);
+}
