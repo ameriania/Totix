@@ -6,3 +6,5 @@
 - normalize.css 样式重置文件(更全版本)
 - shuffle.js 洗牌算法,可以用于数组元素的高效公平随机
 - curry.js curry 化函数,高级函数系列
+
+- 发布了自己的第一个包
