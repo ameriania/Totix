@@ -1,6 +1,5 @@
-export default function() {
+
+export function dedup(arr) {
   /** 手写去重es6 */
-  function filter(arr) {
-    return Array.from(new Set(arr));
-  }
+  return Array.from(new Set(arr));
 }
