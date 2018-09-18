@@ -6,8 +6,6 @@ import { dedup } from './array'
 
 export { dedup } from './array'
 
-export default function () {
-  return {
-    dedup: dedup
-  }
+export default {
+  dedup: dedup
 }
