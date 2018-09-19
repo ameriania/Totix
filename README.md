@@ -1,5 +1,6 @@
 # Totix
 
+![](https://travis-ci.com/ThatToti/Totix.svg?branch=master)
 ![](https://img.shields.io/badge/node-%3E%3D7.60-green.svg)
 ![](https://img.shields.io/badge/npm-v1.0.0-yellow.svg)
 ![](https://img.shields.io/badge/license-MIT-blue.svg)
