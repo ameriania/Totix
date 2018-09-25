@@ -7,7 +7,7 @@
 
 /**
  * 去重函数
- * @param {数组} arr 
+ * @param {array} arr 
  */
 export function dedup(arr) {
   /** 手写去重es6 */
