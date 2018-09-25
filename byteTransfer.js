@@ -1,5 +1,11 @@
 /**
+ * Author:Toti
+ * Mail:mr.totihuang@gmail.com
+ */
+
+/**
  * 字节转换函数
+ * @param {number} byte 
  */
 export function byteTransfer(byte) {
   var k = 1024;
