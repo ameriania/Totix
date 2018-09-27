@@ -1,6 +1,6 @@
 {
   "name": "totix",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "实用函数库",
   "keywords": [],
   "main": "index.js",
