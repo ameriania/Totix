@@ -1,10 +1,10 @@
 # Totix
 
 ![](https://travis-ci.com/ThatToti/Totix.svg?branch=master)
-![](https://img.shields.io/badge/node-%3E%3D7.60-green.svg)
-![](https://img.shields.io/badge/npm-v1.0.0-yellow.svg)
-![](https://img.shields.io/badge/license-MIT-blue.svg)
-![](https://img.shields.io/badge/ECMASCRIPT-ES6%2B-lightgrey.svg)
+[![npm](https://img.shields.io/npm/dt/totix.svg)](https://www.npmjs.com/package/totix)
+![npm](https://img.shields.io/npm/v/totix.svg)
+![GitHub](https://img.shields.io/github/license/ThatToti/totix.svg)
+
 
 
 
