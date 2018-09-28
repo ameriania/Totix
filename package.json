@@ -1,9 +1,21 @@
 {
   "name": "totix",
+  "author": "Toti",
   "version": "1.1.1",
-  "description": "实用函数库",
-  "keywords": [],
+  "description": "实用函数库 Utils collected from daily work",
   "main": "index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ThatToti/Totix.git"
+  },
+  "keywords": [
+    "totix",
+    "javascript",
+    "js",
+    "util",
+    "实用函数"
+  ],
   "dependencies": {},
   "devDependencies": {},
   "scripts": {}
