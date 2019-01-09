@@ -217,15 +217,15 @@ class AVL {
         const rotateLeft = (node) => {
             let tmp = node.right
             node.right = node.right.right
-            node.left = tmp
-            return node
+            tmp.left = tmp
+            return tmp
         }
 
         const rotateRight = (node) => {
             let tmp = node.left
             node.left = node.left.left
-            node.right = tmp
-            return node
+            tmp.right = tmp
+            return tmp
         }
 
         switch (this._rotateType(node)) {
@@ -249,6 +249,39 @@ class AVL {
         }
 
         return node
+    }
+
+    /**
+     * 插入时,保持平衡
+     * @param {string} key 
+     */
+    insert(key) {
+        const newNode = new Node(key)
+
+        const insertNode = (node, newNode) => {
+            if (newNode.key < node.key) {
+                if (node.left === null) {
+                    node.left = newNode
+                } else {
+                    insertNode(node.left, newNode)
+                    this.balance(node.left)
+                }
+            } else {
+                if (node.right === null) {
+                    node.right = newNode
+                } else {
+                    insertNode(node.right, newNode)
+                    this.balance(node.right)
+                }
+            }
+        }
+
+        if (!this.root) {
+            this.root = newNode
+        } else {
+            insertNode(this.root, newNode)
+            this.balance(this.root)
+        }
     }
 }
 
