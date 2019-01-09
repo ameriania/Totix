@@ -94,5 +94,41 @@ class BinarySearchTree {
         }
         traverse(this.root, cb)
     }
+
+    /**
+     * 最小值
+     */
+    min() {
+        const minNode = (node) => {
+            return node ? (node.left ? minNode(node.left) : node) : null
+        }
+
+        return minNode(this.root)
+    }
+
+    /**
+     * 最大值
+     */
+    max() {
+        const maxNode = (node) => {
+            return node ? (node.right ? maxNode(node.right) : node) : null
+        }
+
+        return maxNode(this.root)
+    }
+
+    /**
+     * 查找
+     * @param {string} key 
+     */
+    search(key) {
+        const searchNode = (node, key) => {
+            if (node === null) return false
+            if (node.key === key) return node
+            return searchNode((key < node.key ? node.left : node.right), key)
+        }
+
+        searchNode(this.root, key)
+    }
 }
 
