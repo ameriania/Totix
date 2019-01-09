@@ -17,6 +17,10 @@ class BinarySearchTree {
         this.root = null
     }
 
+    /**
+     * 插入操作,可以存储各种值
+     * @param {any} key 
+     */
     insert(key) {
         const newNode = new Node(key)
 
@@ -46,7 +50,7 @@ class BinarySearchTree {
     /**
      * 先序遍历
      * 根=>左子树=>右子树
-     * @param {cb} 对树节点的处理 
+     * @param {function} cb 
      */
     preOrderTraverse(cb) {
         const preOrderTraverseNode = (node, cb) => {
@@ -57,6 +61,38 @@ class BinarySearchTree {
             }
         }
         preOrderTraverseNode(this.root, cb)
+    }
+
+    /**
+     * 中序遍历
+     * 左子树=>根=>右子树
+     * @param {function} cb 
+     */
+    inOrderTraverse(cb) {
+        const traverse = (node, cb) => {
+            if (node !== null) {
+                traverse(node.left, cb)
+                cb(node.key)
+                traverse(node.right, cb)
+            }
+        }
+        traverse(this.root, cb)
+    }
+
+    /**
+     * 后序遍历
+     * 左子树=>右子树=>根
+     * @param {function} cb 
+     */
+    postOrderTraverse(cb) {
+        const traverse = (node, cb) => {
+            if (node !== null) {
+                traverse(node.left, cb)
+                traverse(node.right, cb)
+                cb(node.key)
+            }
+        }
+        traverse(this.root, cb)
     }
 }
 
