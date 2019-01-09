@@ -174,3 +174,81 @@ class BinarySearchTree {
     }
 }
 
+class AVL {
+    constructor(key) {
+        this.root = null
+    }
+
+    /**
+     * 获取节点的高度
+     * @param {node} node 
+     */
+    height(node) {
+        const getHeight = (node) => {
+            if (node === null) return 0
+
+            let leftH = getHeight(node.left)
+            let rightH = getHeight(node.right)
+            return (leftH > rightH ? leftH : rightH) + 1
+        }
+
+        return getHeight(node || this.root)
+    }
+
+    _factor(node) {
+        return this.height(node.left) - this.height(node.right)
+    }
+
+    _rotateType(node) {
+        if (this._factor(node) > 1 && this._factor(node.left) >= 0) {
+            return 'LL'
+        } else if (this._factor(node) > 1 && this._factor(node.left) < 0) {
+            return 'LR'
+        } else if (this._factor(node) < -1 && this._factor(node.right) <= 0) {
+            return 'RR'
+        } else if (this._factor(node) < -1 && this._factor(node.right) > 0) {
+            return 'RL'
+        }
+    }
+
+    balance(node) {
+        if (node === null) return false
+
+        const rotateLeft = (node) => {
+            let tmp = node.right
+            node.right = node.right.right
+            node.left = tmp
+            return node
+        }
+
+        const rotateRight = (node) => {
+            let tmp = node.left
+            node.left = node.left.left
+            node.right = tmp
+            return node
+        }
+
+        switch (this._rotateType(node)) {
+            case 'LL':
+                node = rotateRight(node)
+                break;
+            case 'LR':
+                node.left = rotateLeft(node.left)
+                node = rotateRight(node)
+                break;
+            case 'RR':
+                node = rotateLeft(node)
+                break;
+            case 'RL':
+                node.right = rotateRight(node.right)
+                node = rotateLeft(node)
+                break;
+            default:
+                return node
+                break;
+        }
+
+        return node
+    }
+}
+
