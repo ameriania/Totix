@@ -97,24 +97,26 @@ class BinarySearchTree {
 
     /**
      * 最小值
+     * 默认为根节点的,指定节点后,只搜索节点的最小值
      */
-    min() {
+    min(node) {
         const minNode = (node) => {
             return node ? (node.left ? minNode(node.left) : node) : null
         }
 
-        return minNode(this.root)
+        return minNode(node || this.root)
     }
 
     /**
      * 最大值
+     * 默认为根节点的,指定节点后,只搜索节点的最大值
      */
-    max() {
+    max(node) {
         const maxNode = (node) => {
             return node ? (node.right ? maxNode(node.right) : node) : null
         }
 
-        return maxNode(this.root)
+        return maxNode(node || this.root)
     }
 
     /**
@@ -129,6 +131,46 @@ class BinarySearchTree {
         }
 
         searchNode(this.root, key)
+    }
+
+    /**
+     * 删除
+     * @param {string} key 
+     */
+    remove(key) {
+        const removeNode = (node, key) => {
+            if (node === null) return false
+
+            if (node.key === key) {
+
+                /** 无子节点 */
+                if (node.left === null && node.right === null) {
+                    node = null
+                }
+
+                /** 有双子节点,找右子树的最小值来替换 */
+                if (node.left && node.right) {
+                    node.key = this.min(node.right).key
+                    this.min(node.right) = null
+                }
+
+                /** 有左子节点 */
+                if (node.left) {
+                    node.key = node.left.key
+                    node.left = null
+                }
+
+                /** 有右子节点 */
+                if (node.right) {
+                    node.key = node.right.key
+                    node.right = null
+                }
+            }
+
+            return removeNode((key < node.key) ? node.left : node.right, key)
+        }
+
+        removeNode(this.root, key)
     }
 }
 
