@@ -285,3 +285,44 @@ class AVL {
     }
 }
 
+const RED = 0
+const BLACK = 1
+
+class RBNode {
+    constructor(key, color) {
+        this.key = key
+        this.left = null
+        this.right = null
+        this.color = color
+    }
+
+    filpColor() {
+        this.color = this.color === RED ? BLACK : RED
+    }
+}
+
+class RBTree {
+    constructor() {
+        this.root = null
+    }
+
+
+    insert(key) {
+        const newNode = new RBNode(key, RED)
+
+        const insertNode = (node, newNode) => {
+            if (newNode.key < node.key) {
+                node.left = insertNode(node.left, newNode)
+            } else {
+                node.right = insertNode(node.right, newNode)
+            }
+        }
+
+        if (!this.root) {
+            this.root = new RBNode(key, BLACK)
+        } else {
+            insertNode(this.root, newNode)
+        }
+    }
+}
+
