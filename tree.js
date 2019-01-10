@@ -216,15 +216,15 @@ class AVL {
 
         const rotateLeft = (node) => {
             let tmp = node.right
-            node.right = node.right.right
-            tmp.left = tmp
+            node.right = tmp.left
+            tmp.left = node
             return tmp
         }
 
         const rotateRight = (node) => {
             let tmp = node.left
-            node.left = node.left.left
-            tmp.right = tmp
+            node.left = tmp.right
+            tmp.right = node
             return tmp
         }
 
@@ -264,14 +264,14 @@ class AVL {
                     node.left = newNode
                 } else {
                     insertNode(node.left, newNode)
-                    this.balance(node.left)
+                    node.left = this.balance(node.left)
                 }
             } else {
                 if (node.right === null) {
                     node.right = newNode
                 } else {
                     insertNode(node.right, newNode)
-                    this.balance(node.right)
+                    node.right = this.balance(node.right)
                 }
             }
         }
@@ -280,7 +280,7 @@ class AVL {
             this.root = newNode
         } else {
             insertNode(this.root, newNode)
-            this.balance(this.root)
+            this.root = this.balance(this.root)
         }
     }
 }
@@ -306,15 +306,54 @@ class RBTree {
         this.root = null
     }
 
+    isRed(node) {
+        return node.color === RED
+    }
+
+    filpColors(node) {
+        node.left.filpColor()
+        node.right.filpColor()
+    }
+
+    rotateLeft(node) {
+        let tmp = node.right
+        node.right = tmp.left
+        tmp.left = node
+        tmp.color = node.color
+        node.color = RED
+
+        return tmp
+    }
+
+    rotateRight(node) {
+        let tmp = node.left
+        node.left = tmp.right
+        tmp.left = node
+        tmp.color = node.color
+        node.color = RED
+
+        return tmp
+    }
+
 
     insert(key) {
         const newNode = new RBNode(key, RED)
 
         const insertNode = (node, newNode) => {
             if (newNode.key < node.key) {
-                node.left = insertNode(node.left, newNode)
+                if (node.left === null) {
+                    node.left = newNode
+                } else {
+                    insertNode(node.left, newNode)
+                    node.left = this.REDBLACK(node.left)
+                }
             } else {
-                node.right = insertNode(node.right, newNode)
+                if (node.right === null) {
+                    node.right = newNode
+                } else {
+                    insertNode(node.right, newNode)
+                    node.right = this.REDBLACK(node.right)
+                }
             }
         }
 
@@ -322,7 +361,28 @@ class RBTree {
             this.root = new RBNode(key, BLACK)
         } else {
             insertNode(this.root, newNode)
+            this.root = this.REDBLACK(this.root)
         }
+    }
+
+    /** 插入红黑平衡 */
+    REDBLACK(node) {
+        /** 左子黑,右子红 ,左转*/
+        if (!this.isRed(node.left) && this.isRed(node.right)) {
+            node = this.rotateLeft(node)
+        }
+
+        /** 左子红,左左子红,右转 */
+        if (this.isRed(node.left) && this.isRed(node.left.left)) {
+            node = this.rotateRight(node)
+        }
+
+        /** 双红,反转 */
+        if (this.isRed(node.left) && this.isRed(node.right)) {
+            node = this.filpColors(node)
+        }
+
+        return node
     }
 }
 
